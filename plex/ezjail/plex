@@ -1,0 +1,30 @@
+# To specify the start up order of your ezjails, use these lines to
+# create a Jail dependency tree. See rcorder(8) for more details.
+#
+# PROVIDE: standard_ezjail
+# REQUIRE: 
+# BEFORE: 
+#
+
+export jail_plex_hostname="plex"
+export jail_plex_ip="re0|192.168.1.3"
+export jail_plex_rootdir="/zstore/jails/plex"
+export jail_plex_exec_start="/bin/sh /etc/rc"
+export jail_plex_exec_stop=""
+export jail_plex_mount_enable="YES"
+export jail_plex_devfs_enable="YES"
+export jail_plex_devfs_ruleset="devfsrules_jail"
+export jail_plex_procfs_enable="YES"
+export jail_plex_fdescfs_enable="YES"
+export jail_plex_image=""
+export jail_plex_imagetype="zfs"
+export jail_plex_attachparams=""
+export jail_plex_attachblocking=""
+export jail_plex_forceblocking=""
+export jail_plex_zfs_datasets=""
+export jail_plex_cpuset=""
+export jail_plex_fib=""
+export jail_plex_parentzfs="zstore/jails"
+export jail_plex_parameters="allow.raw_sockets=1"
+export jail_plex_post_start_script=""
+export jail_plex_retention_policy=""

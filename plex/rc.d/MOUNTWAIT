@@ -1,0 +1,31 @@
+#!/bin/sh
+
+# PROVIDE: MOUNTWAIT
+# REQUIRE: mountcritlocal
+# KEYWORD: nojail
+
+# INSTRUCTIONS:
+# Save this file to /etc/rc.d/MOUNTWAIT
+# Add MOUNTWAIT the REQUIRE list in /etc/rc.d/zfs
+
+. /etc/rc.subr
+
+name="MOUNTWAIT"
+start_cmd="MOUNTWAIT_start"
+stop_cmd=":"
+
+MOUNTWAIT_start()
+{
+	info "WAITING 10 SECONDS TO ENSURE USB DEVICES ARE FULLY DETECTED"
+	sleep 10
+	info "10 SECOND PAUSE FINISHED..."
+	if [ -c /dev/diskid/DISK-131074230900413006A ]; then
+		info "zstore USB hard drive detected!"
+	else
+		warn "zstore USB hard drive not found! Please connect USB hard drive and reboot."
+	fi
+	info "CONTINUING BOOT PROCESS..."
+}
+
+load_rc_config $name
+run_rc_command "$1"

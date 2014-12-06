@@ -1,0 +1,7 @@
+/zstore/jails/basejail /zstore/jails/plex/basejail nullfs ro 0 0
+/zstore/movies /zstore/jails/plex/media/movies nullfs ro 0 0
+/zstore/music /zstore/jails/plex/media/music nullfs ro 0 0
+/zstore/photos /zstore/jails/plex/media/photos nullfs ro 0 0
+/zstore/tv /zstore/jails/plex/media/tv nullfs ro 0 0
+/zstore/downloads /zstore/jails/plex/media/downloads nullfs rw 0 0
+
