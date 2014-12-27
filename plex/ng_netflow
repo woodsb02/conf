@@ -1,0 +1,40 @@
+#!/bin/sh
+
+# PROVIDE: ng_netflow
+# BEFORE: SERVERS
+# REQUIRE: NETWORKING
+
+# ng_netflow_enable (bool): used for temporary disabling one node
+#
+# For more information about specific parameters please refer to ng_netflow(4) man page.
+#
+
+. /etc/rc.subr
+
+name="ng_netflow"
+rcvar="ng_netflow_enable"
+start_cmd="ng_netflow_start"
+stop_cmd="ng_netflow_stop"
+required_modules="netgraph ng_netflow ng_ksocket ng_ether"
+
+ng_netflow_start()
+{
+	/usr/sbin/ngctl -f- <<-SEQ
+		mkpeer igb0: netflow lower iface0
+		name igb0:lower netflow
+		connect igb0: netflow: upper out0
+		mkpeer netflow: ksocket export inet/dgram/udp
+		msg netflow: setconfig {iface=0 conf=7}
+		msg netflow:export connect inet/127.0.0.1:4444
+	SEQ
+}
+
+ng_netflow_stop()
+{
+	/usr/sbin/ngctl -f- <<-SEQ
+		shutdown netflow:
+	SEQ
+}
+
+load_rc_config $name
+run_rc_command $@
