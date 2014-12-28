@@ -1,0 +1,30 @@
+# To specify the start up order of your ezjails, use these lines to
+# create a Jail dependency tree. See rcorder(8) for more details.
+#
+# PROVIDE: standard_ezjail
+# REQUIRE: 
+# BEFORE: 
+#
+
+export jail_test_hostname="test"
+export jail_test_ip="igb0|192.168.1.99"
+export jail_test_rootdir="/zstore/jails/test"
+export jail_test_exec_start="/bin/sh /etc/rc"
+export jail_test_exec_stop=""
+export jail_test_mount_enable="YES"
+export jail_test_devfs_enable="YES"
+export jail_test_devfs_ruleset="devfsrules_jail"
+export jail_test_procfs_enable="YES"
+export jail_test_fdescfs_enable="YES"
+export jail_test_image=""
+export jail_test_imagetype="zfs"
+export jail_test_attachparams=""
+export jail_test_attachblocking=""
+export jail_test_forceblocking=""
+export jail_test_zfs_datasets=""
+export jail_test_cpuset=""
+export jail_test_fib=""
+export jail_test_parentzfs="zstore/jails"
+export jail_test_parameters=""
+export jail_test_post_start_script=""
+export jail_test_retention_policy=""

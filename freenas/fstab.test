@@ -1,0 +1,6 @@
+/zstore/jails/basejail /zstore/jails/test/basejail nullfs ro 0 0
+/zstore/poudriere/ports/default /zstore/jails/test/basejail/usr/ports nullfs ro 0 0
+/zstore/public/movies /zstore/jails/test/media/movies nullfs ro 0 0
+/zstore/public/music /zstore/jails/test/media/music nullfs ro 0 0
+/zstore/public/tv /zstore/jails/test/media/tv nullfs ro 0 0
+/zstore/public/videos /zstore/jails/test/media/videos nullfs ro 0 0

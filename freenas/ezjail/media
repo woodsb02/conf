@@ -1,0 +1,30 @@
+# To specify the start up order of your ezjails, use these lines to
+# create a Jail dependency tree. See rcorder(8) for more details.
+#
+# PROVIDE: standard_ezjail
+# REQUIRE: 
+# BEFORE: 
+#
+
+export jail_media_hostname="media"
+export jail_media_ip="igb0|192.168.1.5"
+export jail_media_rootdir="/zstore/jails/media"
+export jail_media_exec_start="/bin/sh /etc/rc"
+export jail_media_exec_stop=""
+export jail_media_mount_enable="YES"
+export jail_media_devfs_enable="YES"
+export jail_media_devfs_ruleset="devfsrules_jail"
+export jail_media_procfs_enable="YES"
+export jail_media_fdescfs_enable="YES"
+export jail_media_image=""
+export jail_media_imagetype="zfs"
+export jail_media_attachparams=""
+export jail_media_attachblocking=""
+export jail_media_forceblocking=""
+export jail_media_zfs_datasets=""
+export jail_media_cpuset=""
+export jail_media_fib=""
+export jail_media_parentzfs="zstore/jails"
+export jail_media_parameters="allow.raw_sockets=1"
+export jail_media_post_start_script=""
+export jail_media_retention_policy=""
