@@ -1,0 +1,2 @@
+[bastille_vnet=13]
+add path 'bpf*' unhide
